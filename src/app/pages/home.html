@@ -1,0 +1,264 @@
+<div class="min-h-screen bg-slate-100 flex">
+
+  <!-- SIDEBAR -->
+  <aside class="w-72 bg-slate-900 text-white p-6 hidden md:flex flex-col">
+
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold text-cyan-400">
+        Dashboard
+      </h1>
+
+      <p class="text-slate-400 mt-2 text-sm">
+        Panel administrativo
+      </p>
+    </div>
+
+    <nav class="space-y-3">
+
+      <a href="#"
+        class="flex items-center gap-3 bg-cyan-500/20 text-cyan-400 p-4 rounded-xl">
+        <span>🏠</span>
+        <span>Inicio</span>
+      </a>
+
+      <a href="#"
+        class="flex items-center gap-3 hover:bg-slate-800 p-4 rounded-xl transition">
+        <span>📊</span>
+        <span>Estadísticas</span>
+      </a>
+
+      <a href="#"
+        class="flex items-center gap-3 hover:bg-slate-800 p-4 rounded-xl transition">
+        <span>👥</span>
+        <span>Usuarios</span>
+      </a>
+
+      <a href="#"
+        class="flex items-center gap-3 hover:bg-slate-800 p-4 rounded-xl transition">
+        <span>📦</span>
+        <span>Pedidos</span>
+      </a>
+
+      <a href="#"
+        class="flex items-center gap-3 hover:bg-slate-800 p-4 rounded-xl transition">
+        <span>⚙️</span>
+        <span>Configuración</span>
+      </a>
+
+    </nav>
+
+    <div class="mt-auto">
+      <div class="bg-slate-800 rounded-2xl p-4">
+        <p class="text-sm text-slate-400">
+          Usuario activo
+        </p>
+
+        <h2 class="font-semibold mt-1">
+          Braulio Castro
+        </h2>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="flex-1 p-6">
+
+    <!-- TOPBAR -->
+    <div
+      class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+
+      <div>
+        <h2 class="text-3xl font-bold text-slate-800">
+          Bienvenido 👋
+        </h2>
+
+        <p class="text-slate-500 mt-1">
+          Resumen general del sistema
+        </p>
+      </div>
+
+      <div class="flex items-center gap-4">
+
+        <input
+          type="text"
+          placeholder="Buscar..."
+          class="bg-white px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-cyan-400"
+        />
+
+        <button
+          class="bg-cyan-500 hover:bg-cyan-600 transition text-white px-5 py-3 rounded-xl font-medium shadow-lg">
+          Nuevo
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARDS -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+
+      <div
+        *ngFor="let item of stats"
+        class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition duration-300">
+
+        <div class="flex items-center justify-between">
+
+          <div>
+            <p class="text-slate-500 text-sm">
+              {{ item.title }}
+            </p>
+
+            <h3 class="text-3xl font-bold text-slate-800 mt-2">
+              {{ item.value }}
+            </h3>
+          </div>
+
+          <div
+            class="w-14 h-14 rounded-2xl bg-cyan-100 flex items-center justify-center text-2xl">
+            {{ item.icon }}
+          </div>
+
+        </div>
+
+        <div class="mt-5">
+          <span
+            class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
+            {{ item.change }}
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- GRID -->
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+
+      <!-- TABLE -->
+      <div class="xl:col-span-2 bg-white rounded-2xl shadow-sm p-6">
+
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-xl font-bold text-slate-800">
+            Últimos movimientos
+          </h3>
+
+          <button
+            class="text-cyan-500 hover:text-cyan-600 font-medium">
+            Ver todo
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+
+          <table class="w-full">
+
+            <thead>
+              <tr class="border-b border-slate-200 text-slate-500 text-sm">
+                <th class="text-left py-4">Usuario</th>
+                <th class="text-left py-4">Actividad</th>
+                <th class="text-left py-4">Estado</th>
+                <th class="text-left py-4">Hora</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr
+                *ngFor="let activity of activities"
+                class="border-b border-slate-100 hover:bg-slate-50 transition">
+
+                <td class="py-5 font-medium text-slate-700">
+                  {{ activity.user }}
+                </td>
+
+                <td class="py-5 text-slate-500">
+                  {{ activity.action }}
+                </td>
+
+                <td class="py-5">
+                  <span
+                    class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-semibold">
+                    Activo
+                  </span>
+                </td>
+
+                <td class="py-5 text-slate-400">
+                  {{ activity.time }}
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+      <!-- PROFILE CARD -->
+      <div class="bg-linear-to-br from-cyan-500 to-blue-600 rounded-2xl p-6 text-white shadow-xl">
+
+        <div class="flex items-center gap-4 mb-8">
+
+          <div
+            class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-2xl">
+            👨‍💻
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold">
+              Braulio Castro
+            </h3>
+
+            <p class="text-cyan-100 text-sm">
+              Frontend Developer
+            </p>
+          </div>
+
+        </div>
+
+        <div class="space-y-5">
+
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span>Progreso</span>
+              <span>78%</span>
+            </div>
+
+            <div class="w-full bg-white/20 rounded-full h-3">
+              <div class="bg-white h-3 rounded-full w-9/12"></div>
+            </div>
+          </div>
+
+          <div class="bg-white/10 rounded-2xl p-4">
+            <p class="text-sm text-cyan-100">
+              Proyectos completados
+            </p>
+
+            <h2 class="text-3xl font-bold mt-2">
+              24
+            </h2>
+          </div>
+
+          <div class="bg-white/10 rounded-2xl p-4">
+            <p class="text-sm text-cyan-100">
+              Tareas pendientes
+            </p>
+
+            <h2 class="text-3xl font-bold mt-2">
+              7
+            </h2>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
