@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-products',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './products.html',
   styles: `
     :host {
@@ -11,10 +13,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class Products {
 
-
-    mostrarModal = false;
+  mostrarModal = false;
 
 }
-
