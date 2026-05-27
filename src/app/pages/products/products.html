@@ -1,67 +1,161 @@
-<h1>Productos</h1>
+<h1
+style="
+text-align:center;
+font-family: Arial;
+color:#7c3aed;
+margin-bottom:20px;
+">
+🛍️ Productos
+</h1>
 
-<button (click)="mostrarModal = true">
-    Agregar producto
-</button>
+<div style="text-align:center;">
 
+    <button
+    (click)="mostrarModal = true"
 
+    style="
+    background:#7c3aed;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    box-shadow:0px 4px 10px rgba(0,0,0,0.2);
+    ">
+
+        ➕ Agregar producto
+
+    </button>
+
+</div>
+
+<!-- MODAL -->
 
 <div *ngIf="mostrarModal"
+
 style="
 position: fixed;
 top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-background: rgba(0,0,0,0.5);
-display: flex;
-justify-content: center;
-align-items: center;
+background: rgba(0,0,0,0.6);
+
+display:flex;
+justify-content:center;
+align-items:center;
 ">
 
+    <!-- CONTENIDO -->
+
     <div
+
     style="
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
+    background:white;
+    width:350px;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0px 10px 25px rgba(0,0,0,0.3);
+    font-family:Arial;
     ">
 
-        <h2>Nuevo producto</h2>
+        <h2
+        style="
+        text-align:center;
+        color:#7c3aed;
+        margin-bottom:20px;
+        ">
+            ✨ Nuevo producto
+        </h2>
 
         <form>
 
-            <label>Nombre</label>
+            <label
+            style="
+            font-weight:bold;
+            color:#444;
+            ">
+                Nombre
+            </label>
+
             <input
             type="text"
+            placeholder="Nombre del producto"
+
             style="
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 8px;
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:10px;
             ">
 
-            <label>Precio</label>
+            <label
+            style="
+            font-weight:bold;
+            color:#444;
+            ">
+                Precio
+            </label>
+
             <input
             type="number"
+            placeholder="$0.00"
+
             style="
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 8px;
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            margin-bottom:20px;
+            border:1px solid #ccc;
+            border-radius:10px;
             ">
 
-            <br><br>
+            <div
+            style="
+            display:flex;
+            justify-content:space-between;
+            ">
 
-            <button type="submit">
-                Guardar
-            </button>
+                <button
+                type="submit"
 
-            <button
-            type="button"
-            (click)="mostrarModal = false">
+                style="
+                background:#22c55e;
+                color:white;
+                border:none;
+                padding:10px 15px;
+                border-radius:10px;
+                cursor:pointer;
+                font-weight:bold;
+                ">
 
-                Cerrar
+                    💾 Guardar
 
-            </button>
+                </button>
+
+                <button
+                type="button"
+                (click)="mostrarModal = false"
+
+                style="
+                background:#ef4444;
+                color:white;
+                border:none;
+                padding:10px 15px;
+                border-radius:10px;
+                cursor:pointer;
+                font-weight:bold;
+                ">
+
+                    ✖ Cerrar
+
+                </button>
+
+            </div>
 
         </form>
 
